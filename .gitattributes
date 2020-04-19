@@ -1,5 +1,5 @@
-*.js linguist-language=java,springboot,mybatis
+*.js linguist-language=java
 
-*.css linguist-language=java,springboot,mybatis
+*.css linguist-language=java
 
-*.html linguist-language=java,springboot,mybatis
+*.html linguist-language=java

@@ -1,0 +1,43 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- namespace:该mapper.xml映射文件的 唯一标识 -->
+<mapper namespace="com.lz.mapper.TypeMapper">
+    <resultMap id="BaseResultMap" type="com.lz.entity.Type">
+        <id property="id" column="id"/>
+        <result property="name" column="name"/>
+    </resultMap>
+
+    <!--保存分类-->
+    <insert id="saveType" parameterType="com.lz.entity.Type">
+        insert into t_type values (null,#{name});
+    </insert>
+
+    <!--显示所有分类-->
+    <select id="getAllType" resultMap="BaseResultMap">
+        select * from t_type
+    </select>
+
+    <!--通过编号获取分类-->
+    <select id="getTypeById" resultMap="BaseResultMap">
+        select * from t_type where id=#{id}
+    </select>
+
+    <!--通过分类名称获取分类-->
+    <select id="getTypeByName" resultMap="BaseResultMap">
+        select * from t_type where name=#{name}
+    </select>
+
+    <!--更新分类-->
+    <update id="updateType">
+        update t_type set name=#{name} where id=#{id}
+    </update>
+
+    <!--删除分类-->
+    <delete id="deleteType">
+        delete from t_type where id=#{id}
+    </delete>
+
+</mapper>

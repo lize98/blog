@@ -1,0 +1,43 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- namespace:该mapper.xml映射文件的 唯一标识 -->
+<mapper namespace="com.lz.mapper.TagMapper">
+    <resultMap id="BaseResultMap" type="com.lz.entity.Tag">
+        <id property="id" column="id"/>
+        <result property="name" column="name"/>
+    </resultMap>
+
+    <!--保存标签-->
+    <insert id="saveTag" parameterType="com.lz.entity.Tag">
+        insert into t_tag values (null,#{name});
+    </insert>
+
+    <!--显示所有标签-->
+    <select id="getAllTag" resultMap="BaseResultMap">
+        select * from t_tag
+    </select>
+
+    <!--通过编号获取标签-->
+    <select id="getTagById" resultMap="BaseResultMap">
+        select * from t_tag where id=#{id}
+    </select>
+
+    <!--通过标签名称获取标签-->
+    <select id="getTagByName" resultMap="BaseResultMap">
+        select * from t_tag where name=#{name}
+    </select>
+
+    <!--更新标签-->
+    <update id="updateTag">
+        update t_tag set name=#{name} where id=#{id}
+    </update>
+
+    <!--删除标签-->
+    <delete id="deleteTag">
+        delete from t_tag where id=#{id}
+    </delete>
+
+</mapper>

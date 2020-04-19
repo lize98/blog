@@ -1,0 +1,27 @@
+spring:
+  thymeleaf:
+    mode: HTML
+  profiles:
+    active: dev
+  messages:
+    basename: i18n/messages
+
+
+# 分页配置
+pagehelper:
+  helper-dialect: mysql
+  reasonable: true
+  support-methods-arguments: true
+  params: count=countSql
+
+
+mybatis:
+  #mapper配置文件
+  mapper-locations: classpath:mapping/*.xml
+  type-aliases-package: com.lz.entity
+  #开启驼峰命名
+  configuration:
+    map-underscore-to-camel-case: true
+
+comment.avatar: /images/avatar.png
+

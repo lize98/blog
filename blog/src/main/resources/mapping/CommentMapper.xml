@@ -1,0 +1,43 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- namespace:该mapper.xml映射文件的 唯一标识 -->
+<mapper namespace="com.lz.mapper.CommentMapper">
+    <resultMap id="BaseResultMap" type="com.lz.entity.Comment">
+        <id property="id" column="id"/>
+        <result property="nickname" column="nickname"/>
+        <result property="email" column="email"/>
+        <result property="content" column="content"/>
+        <result property="avatar" column="avatar"/>
+        <result property="createTime" column="create_time"/>
+        <result property="adminComment" column="admin_comment"/>
+        <result property="blogId" column="blog_id"/>
+        <result property="replyName" column="reply_name"/>
+        <result property="parentCommentId" column="parent_comment_id"/>
+        <result property="topCommentId" column="top_comment_id"/>
+    </resultMap>
+
+    <!--新增评论-->
+    <insert id="saveComment">
+        insert into t_comment values (null,#{nickname},#{email},#{content},#{avatar},#{createTime},#{adminComment},#{blogId},#{replyName},#{parentCommentId},#{topCommentId})
+    </insert>
+
+    <!--通过编号获取评论-->
+    <select id="getCommentByIdAndBlogId" resultMap="BaseResultMap">
+        select * from t_comment where id=#{id} and blog_id=#{blogId}
+    </select>
+
+    <!--查询评论通过父评论-->
+    <select id="getCommentByParentCommentIdAndBlogId" resultMap="BaseResultMap">
+        select * from t_comment where parent_comment_id=#{parentCommentId} and blog_id=#{blogId} order by create_time desc
+    </select>
+
+    <!--查询评论通过顶级评论-->
+    <select id="getCommentByTopCommentAndBlogId" resultMap="BaseResultMap">
+        select * from t_comment where top_comment_id=#{topCommentId} and blog_id=#{blogId} order by create_time desc
+    </select>
+
+
+</mapper>

@@ -1,5 +1,6 @@
 ## 此项目使用的是semantic UI +Springboot +Mybaits
 新增功能：
+*  鼠标图标
 *  鼠标点击特效
 *  看板娘
 *  音乐播放器

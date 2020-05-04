@@ -134,7 +134,7 @@
         select b.id,b.title,b.first_picture,b.flag,b.content,b.views,b.update_time,b.commentabled,b.appreciation,b.share_statement,b.tag_ids,
             u.avatar,u.nickname
         from t_blog b,t_user u
-        where b.user_id=u.id and b.published=1
+        where b.user_id=u.id and b.published=1 and b.id=#{id}
     </select>
 
     <!--更新浏览数-->

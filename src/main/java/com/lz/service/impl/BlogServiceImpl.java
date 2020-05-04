@@ -109,12 +109,16 @@ public class BlogServiceImpl implements BlogService {
         }
 
         List tags = new ArrayList();
-        String[] tagIds=blog.getTagIds().split(",");
-        for(String tagId:tagIds){
-            Long tagid=Long.parseLong(tagId);
-            tags.add(tagService.getTagById(tagid));
+        if(blog.getTagIds()=="" || blog.getTagIds().equals("")){
+
+        }else{
+            String[] tagIds=blog.getTagIds().split(",");
+            for(String tagId:tagIds){
+                Long tagid=Long.parseLong(tagId);
+                tags.add(tagService.getTagById(tagid));
+            }
+            blog.setTags(tags);
         }
-        blog.setTags(tags);
 
         String content=blog.getContent();
         blog.setContent(MarkdownUtils.markdownToHtmlExtensions(content));

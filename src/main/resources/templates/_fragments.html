@@ -4,17 +4,16 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title th:replace="${title}">博客详情</title>
+
+    <!--引入图标-->
+<!--    <link rel="icon" type="image/x-icon" href="../static/favicon.ico" th:href="@{/favicon.ico}"/>-->
+
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/semantic-ui/2.2.4/semantic.min.css">
     <link rel="stylesheet" href="../static/css/typo.css" th:href="@{/css/typo.css}">
     <link rel="stylesheet" href="../static/css/animate.css" th:href="@{/css/animate.css}">
     <link rel="stylesheet" href="../static/lib/prism/prism.css" th:href="@{/lib/prism/prism.css}">
     <link rel="stylesheet" href="../static/lib/tocbot/tocbot.css" th:href="@{/lib/tocbot/tocbot.css}">
     <link rel="stylesheet" href="../static/css/me.css" th:href="@{/css/me.css}">
-
-    <!--音乐播放器-->
-    <link href="https://cdn.bootcss.com/aplayer/1.10.1/APlayer.min.css" rel="stylesheet">
-    <script src="https://cdn.bootcss.com/aplayer/1.10.1/APlayer.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/meting@1.1.0/dist/Meting.min.js"></script>
 
     <!--看板娘-->
     <script src="https://cdn.jsdelivr.net/npm/jquery/dist/jquery.min.js"></script>
@@ -97,23 +96,36 @@
 </footer>
 
 <th:block th:fragment="script">
-  <script src="https://cdn.jsdelivr.net/npm/jquery@3.2/dist/jquery.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/semantic-ui/2.2.4/semantic.min.js"></script>
-  <script src="//cdn.jsdelivr.net/npm/jquery.scrollto@2.1.2/jquery.scrollTo.min.js"></script>
-  <script src="../static/lib/prism/prism.js" th:src="@{/lib/prism/prism.js}"></script>
-  <script src="../static/lib/tocbot/tocbot.min.js" th:src="@{/lib/tocbot/tocbot.min.js}"></script>
-  <script src="../static/lib/qrcode/qrcode.min.js" th:src="@{/lib/qrcode/qrcode.min.js}"></script>
-  <script src="../static/lib/waypoints/jquery.waypoints.min.js" th:src="@{/lib/waypoints/jquery.waypoints.min.js}"></script>
+    <!--音乐播放器-->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer@1.10.0/dist/APlayer.min.css">
+    <script src="https://blog-static.cnblogs.com/files/yjlaugus/APlayer.min.js"></script>
+    <div id="aplayer" class="aplayer"  data-id="4904773731" data-server="netease" data-type="playlist" data-fixed="true" data-listfolded="true" data-order="random" data-theme="#F58EA8" data-autoplay="true"></div>
+    <script src="https://unpkg.com/meting@1.2/dist/Meting.min.js"></script>
 
-  <!--添加雪花动态效果-->
-  <!--  <script src="../static/js/snowflake.js" th:src="@{/js/snowflake.js}"></script>-->
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.2/dist/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/semantic-ui/2.2.4/semantic.min.js"></script>
+    <script src="//cdn.jsdelivr.net/npm/jquery.scrollto@2.1.2/jquery.scrollTo.min.js"></script>
+    <script src="../static/lib/prism/prism.js" th:src="@{/lib/prism/prism.js}"></script>
+    <script src="../static/lib/tocbot/tocbot.min.js" th:src="@{/lib/tocbot/tocbot.min.js}"></script>
+    <script src="../static/lib/qrcode/qrcode.min.js" th:src="@{/lib/qrcode/qrcode.min.js}"></script>
+    <script src="../static/lib/waypoints/jquery.waypoints.min.js" th:src="@{/lib/waypoints/jquery.waypoints.min.js}"></script>
+
+    <!--添加雪花动态效果-->
+    <!--  <script src="../static/js/snowflake.js" th:src="@{/js/snowflake.js}"></script>-->
+
+    <!--鼠标点击特效-->
+    <script src="../static/js/mouse-click.js" th:src="@{/js/mouse-click.js}"></script>
+
+    <!--背景彩带特效-->
+<!--    <script src="../static/js/ribbon.js" th:src="@{/js/ribbon.js}"></script>-->
+
+    <!--背景线条特效-->
+    <script type="text/javascript" color="47,135,193" opacity='0.5' zIndex="-2" count="199" src="http://cdn.bootcss.com/canvas-nest.js/1.0.1/canvas-nest.min.js"></script>
 
 
-  <script src="../static/js/mouse-click.js" th:src="@{/js/mouse-click.js}"></script>
-
-  <script>
+    <script>
     $('#newblog-container').load(/*[[@{/footer/newblog}]]*/"/footer/newblog");
-  </script>
+    </script>
 </th:block>
 
 </body>
